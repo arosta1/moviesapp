@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @genre.name %>
+</p>
+<% if @genre.movies.empty? %>
+   <p>There Are No Movies In This Category</p>
+<% else %> 
+   <p>These are the movies we have in this genre<m>
+       <% @genre.movies.each do |m| %>
+       <p><%= image_tag(m.poster, :size =>"80x80")%></p>
+       <br>
+	   <%= m.title %>
+    <% end %>
+<% end %>
+<br>
+
+<%= link_to 'Edit', edit_genre_path(@genre) %> |
+<%= link_to 'Back', genres_path %>
